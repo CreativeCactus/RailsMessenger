@@ -41,6 +41,13 @@ en:
           blank: "required"
           no_exist: "does not exist"
           email_missing: "email required"
+          email_missing: "email must not be your own"
           attributes:
             to_id:
               blank: "does not exist"
+  date:
+    formats:
+      default: "%d|%m|%Y"
+  time:
+    formats:
+      default: "%d|%m|%Y %H:%M"

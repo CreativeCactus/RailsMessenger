@@ -1,16 +1,27 @@
-<h1>Messages</h1>
+<h1>Chats</h1>
 <%= link_to 'New', new_message_url %>
-<% @messages.each do |message| %>
-    <hr></hr>
-    <p>
-        <strong>To:</strong>
-        <%= message.to_id %>
-        <strong>From:</strong>
-        <%= message.from_id %>
-    </p>
-    <p>
-        <strong>Text:</strong>
-        <%= message.body %>
+<% @hists.each do |hist| %>
+    <hr></hr><p>
+        <strong>
+            <%= link_to hist.email, :controller => 'messages', :action => 'findByUser', :user => hist.user %>
+        </strong>
+        <% length = hist.msgs.length %>
+        <% hist.msgs.each_with_index do |message, i| %>
+            <%# Loop will not run if length is 0, safe from /0 err. %>
+            <%# Get a value 0-200 for the alpha component of each message (older msgs greyer). %>
+            <% fade = 200 - (200 * i / length).round %>
+            <%= content_tag(:p, { 
+                :class => 'mini',
+                :color => "rgba(0,0,0,#{fade})",
+                :style => "color: rgba(0,0,0,#{fade})"
+            }) do
+                concat content_tag(:b, "
+                    #{message.created_at.to_formatted_s(:short)}
+                    #{message.from_id == current_user.id ? "⇨" : "⇦"}
+                    ")
+                concat message.body.to_s
+            end %>
+        <% end %>
     </p>
 <% end %>
  

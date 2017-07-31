@@ -1,0 +1,9 @@
+<h1>Chat with <%= @email %></h1>
+
+<%= render partial: 'show', collection: @messages, as: :message %>
+
+<hr></hr>
+<hr></hr>
+<div>
+    <%= render partial: 'new', email: @email %>
+</div>

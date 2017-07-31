@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   #              patch  /messages/:id(.:format)                 messages#update
   #              put    /messages/:id(.:format)                 messages#update
   #              delete /messages/:id(.:format)                 messages#destroy
-
+  get '/messages/with/:user' => 'messages#findByUser'
 end

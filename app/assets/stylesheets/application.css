@@ -17,6 +17,9 @@
 #container {
     top: 10px;
 }
+.mini{
+    line-height: 1px;
+}
 hr{
 
     border: 0;

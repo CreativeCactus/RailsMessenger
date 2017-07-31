@@ -1,0 +1,16 @@
+<%= form_for :message, url: "/messages" do |f| %>
+
+    <p>
+        <% if @email %>
+            <%= f.hidden_field :to_email, :value => @email %>
+        <% else %>
+            <%= f.label :to_email %><br>
+            <%= f.text_field :to_email %><br>
+            <%= f.label :body %><br>
+        <% end %>
+        
+        <%= f.text_area :body %><br>
+        <%= f.submit({:class => 'btn btn-primary'}) %>
+  </p>
+  
+<% end %>
