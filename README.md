@@ -6,6 +6,8 @@ Simple messenger app with roles, built during first three days of ruby exposure 
 
 ## Todo
 
+* Tests!
+
 * Nicer UI.
 
 * Implement user search.
