@@ -1,0 +1,7 @@
+Home page
+<% if signed_in? %>
+You are signed in as user ID:<%= current_user.id %>.
+<%= button_to 'Sign out', sign_out_path, method: :delete %>
+<% else %>
+<%= link_to 'Sign in', sign_in_path %>
+<% end %>

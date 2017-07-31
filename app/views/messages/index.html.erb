@@ -1,0 +1,16 @@
+<h1>Messages</h1>
+<%= link_to 'New', new_message_url %>
+<% @messages.each do |message| %>
+    <hr></hr>
+    <p>
+        <strong>To:</strong>
+        <%= message.to_id %>
+        <strong>From:</strong>
+        <%= message.from_id %>
+    </p>
+    <p>
+        <strong>Text:</strong>
+        <%= message.body %>
+    </p>
+<% end %>
+ 
